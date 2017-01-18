@@ -107,14 +107,14 @@
             this.pictureBox2.Location = new System.Drawing.Point(1, 60);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(419, 163);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.DefaultExt = "png";
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "PNG Images (*.PNG)|*.PNG";
             // 
             // btn_opFileDlg
             // 
@@ -132,6 +132,7 @@
             // 
             // SendForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 306);
@@ -146,6 +147,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SendForm";
             this.Text = "SendForm";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.SendForm_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.SendForm_DragEnter);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SendForm_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

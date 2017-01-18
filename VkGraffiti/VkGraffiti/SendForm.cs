@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Net;
+using System.IO;
 
 namespace VkGraffiti
 {
@@ -34,6 +35,7 @@ namespace VkGraffiti
             GlobalVars.user_id = user_id.ToString();
             pictureBox1.Image = photo;
             label1.Text = user_name;
+            
         }
 
 
@@ -109,6 +111,19 @@ namespace VkGraffiti
         void wc_UploadProgressChanged(object sender, UploadProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void SendForm_DragDrop(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void SendForm_DragEnter(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            path = files[0];
+            name = Path.GetFileName(path);
+            pictureBox2.Image = Image.FromFile(path);
         }
          
     }

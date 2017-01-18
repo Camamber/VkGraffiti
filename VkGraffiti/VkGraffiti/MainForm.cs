@@ -82,7 +82,7 @@ namespace VkGraffiti
 
                 string s = Encoding.UTF8.GetString(wc.DownloadData("https://api.vk.com/method/friends.get?order=hints&fields=online,photo_50&v=5.62&access_token=" + GlobalVars.token));
                 RootObject rt = JsonConvert.DeserializeObject<RootObject>(s);
-
+             
                 foreach (Item resp in rt.response.items)
                 {
                     try
